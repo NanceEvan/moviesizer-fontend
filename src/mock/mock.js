@@ -3,7 +3,7 @@ const Mock = require('mockjs') // 获取mock对象
 // const code = 200 // 返回的状态码
 
 const postBanners = req => {
-  return = require('./mocker/banners')
+  return require('./mocker/banners')
 }
 
 // 获取banners
