@@ -1,8 +1,14 @@
 <template>
-  <div id="app">
-    <header-nav></header-nav>
-    <router-view/>
-  </div>
+  <el-container>
+    <el-header>
+      <header-nav></header-nav>
+    </el-header>
+    <el-main>
+      <router-view/>
+    </el-main>
+    <el-footer>
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -16,4 +22,5 @@ export default {
 </script>
 
 <style>
+
 </style>

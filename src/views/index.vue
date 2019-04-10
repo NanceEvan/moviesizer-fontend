@@ -1,11 +1,14 @@
 <template>
-  <div>
-  </div>
+    <carousel></carousel>
 </template>
 
 <script>
+import Carousel from '../components/carousel'
 export default {
-  name: 'index'
+  name: 'index',
+  components: {
+    Carousel
+  }
 }
 </script>
 

@@ -1,59 +1,59 @@
 <template>
-<el-header id="header" class="container">
-  <!--右侧工具栏-->
-  <ul class="top-nav-info clear">
-    <li>
-      <el-dropdown>
+  <div class="container">
+      <!--右侧工具栏-->
+      <ul class="top-nav-info clear">
+        <li>
+          <el-dropdown>
         <span class="el-dropdown-link">
           <svg class="icon nav-bar-icon"><use xlink:href="#icon-wode"></use></svg>
         </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>我的收藏</el-dropdown-item>
-          <el-dropdown-item>我的影评</el-dropdown-item>
-          <el-dropdown-item divided>修改个人信息</el-dropdown-item>
-          <el-dropdown-item>设置</el-dropdown-item>
-          <el-dropdown-item divided>退出</el-dropdown-item>
-        </el-dropdown-menu>
-    </el-dropdown>
-    </li>
-    <li><svg class="icon nav-bar-icon"><use xlink:href="#icon-unie62c"></use></svg></li>
-  </ul>
-  <!--导航菜单-->
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" >
-    <el-menu-item index="1">首页</el-menu-item>
-    <el-submenu index="2">
-      <template slot="title">选电影</template>
-      <el-menu-item index="2-1">猜你喜欢</el-menu-item>
-      <el-menu-item index="2-2">热门推荐</el-menu-item>
-      <el-menu-item index="2-3">最近上映</el-menu-item>
-    </el-submenu>
-    <el-menu-item index="3">排行榜</el-menu-item>
-    <el-menu-item index="4">分类</el-menu-item>
-    <el-menu-item index="5">影评</el-menu-item>
-  </el-menu>
-  <!--热门搜索-->
-  <el-row class="demo-autocomplete">
-    <el-col :span="20" :offset="2">
-      <el-autocomplete
-        v-model="keySearch"
-        :fetch-suggestions="querySearchAsync"
-        placeholder="请输入内容"
-        clearable
-        placement="bottom"
-        suffix-icon="el-icon-search"
-        class="key-search"
-      ></el-autocomplete>
-    </el-col>
-  </el-row>
-  <!--&lt;!&ndash;面包屑&ndash;&gt;-->
-  <!--<el-breadcrumb separator="/" class="breadcrumb">-->
-    <!--<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>-->
-    <!--<el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>-->
-    <!--<el-breadcrumb-item>活动列表</el-breadcrumb-item>-->
-    <!--<el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
-  <!--</el-breadcrumb>-->
-</el-header>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item>我的收藏</el-dropdown-item>
+              <el-dropdown-item>我的影评</el-dropdown-item>
+              <el-dropdown-item divided>修改个人信息</el-dropdown-item>
+              <el-dropdown-item>设置</el-dropdown-item>
+              <el-dropdown-item divided>退出</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </li>
+        <li><svg class="icon nav-bar-icon"><use xlink:href="#icon-unie62c"></use></svg></li>
+      </ul>
+      <!--导航菜单-->
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" >
+        <el-menu-item index="1">首页</el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">选电影</template>
+          <el-menu-item index="2-1">猜你喜欢</el-menu-item>
+          <el-menu-item index="2-2">热门推荐</el-menu-item>
+          <el-menu-item index="2-3">最近上映</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="3">排行榜</el-menu-item>
+        <el-menu-item index="4">分类</el-menu-item>
+        <el-menu-item index="5">影评</el-menu-item>
+      </el-menu>
+      <!--热门搜索-->
+      <el-row class="demo-autocomplete clear">
+        <el-col :span="20" :offset="2">
+          <el-autocomplete
+            v-model="keySearch"
+            :fetch-suggestions="querySearchAsync"
+            placeholder="请输入内容"
+            clearable
+            placement="bottom"
+            suffix-icon="el-icon-search"
+            class="key-search"
+          ></el-autocomplete>
+        </el-col>
+      </el-row>
+      <!--&lt;!&ndash;面包屑&ndash;&gt;-->
+      <!--<el-breadcrumb separator="/" class="breadcrumb">-->
+      <!--<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>-->
+      <!--<el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>-->
+      <!--<el-breadcrumb-item>活动列表</el-breadcrumb-item>-->
+      <!--<el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
+      <!--</el-breadcrumb>-->
+    </div>
 </template>
 
 <script>
