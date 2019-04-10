@@ -1,5 +1,6 @@
 <template>
 <el-header id="header" class="container">
+  <!--右侧工具栏-->
   <ul class="top-nav-info clear">
     <li>
       <el-dropdown>
@@ -18,6 +19,7 @@
     </li>
     <li><svg class="icon nav-bar-icon"><use xlink:href="#icon-unie62c"></use></svg></li>
   </ul>
+  <!--导航菜单-->
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" >
     <el-menu-item index="1">首页</el-menu-item>
     <el-submenu index="2">
@@ -30,6 +32,7 @@
     <el-menu-item index="4">分类</el-menu-item>
     <el-menu-item index="5">影评</el-menu-item>
   </el-menu>
+  <!--热门搜索-->
   <el-row class="demo-autocomplete">
     <el-col :span="20" :offset="2">
       <el-autocomplete
@@ -43,6 +46,13 @@
       ></el-autocomplete>
     </el-col>
   </el-row>
+  <!--&lt;!&ndash;面包屑&ndash;&gt;-->
+  <!--<el-breadcrumb separator="/" class="breadcrumb">-->
+    <!--<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>-->
+    <!--<el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>-->
+    <!--<el-breadcrumb-item>活动列表</el-breadcrumb-item>-->
+    <!--<el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
+  <!--</el-breadcrumb>-->
 </el-header>
 </template>
 
@@ -153,5 +163,9 @@ export default {
   .key-search {
     width: 100%;
     margin-top: 20px;
+  }
+  .breadcrumb {
+    margin-top: 10px;
+    margin-left: 20px;
   }
 </style>
