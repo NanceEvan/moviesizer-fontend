@@ -1,0 +1,12 @@
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.nav-bar-icon {
+  width: 25px;
+  height: 25px;
+  vertical-align: baseline;
+}
