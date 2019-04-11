@@ -62,7 +62,7 @@ export default {
   #header {
     height: 50px;
     position: fixed;
-    top: 0px;
+    top: 0;
     z-index: 9999
   }
   .top-nav-info {
