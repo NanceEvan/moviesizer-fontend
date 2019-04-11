@@ -3,7 +3,7 @@
     <el-header>
       <header-nav></header-nav>
     </el-header>
-    <el-main style="height: 700px">
+    <el-main>
       <router-view/>
     </el-main>
     <el-footer>
