@@ -61,7 +61,7 @@ export default {
             'password': this.account.pwd
           }
           login(loginParams).then(res => res.data).then(res => {
-            console.log(res)
+            console.log('res', res)
             // 本地存储用户信息
             cookie.setCookie('name', this.account.username, 7)
             cookie.setCookie('token', res.token, 7)

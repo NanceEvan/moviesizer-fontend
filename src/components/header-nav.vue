@@ -4,33 +4,35 @@
       <ul class="top-nav-info clear">
         <li>
           <el-dropdown>
-        <span class="el-dropdown-link">
-          <svg class="icon nav-bar-icon"><use xlink:href="#icon-wode"></use></svg>
-        </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>个人中心</el-dropdown-item>
-              <el-dropdown-item>我的收藏</el-dropdown-item>
-              <el-dropdown-item>我的影评</el-dropdown-item>
-              <el-dropdown-item divided>修改个人信息</el-dropdown-item>
-              <el-dropdown-item>设置</el-dropdown-item>
-              <el-dropdown-item divided>退出</el-dropdown-item>
-            </el-dropdown-menu>
+              <span class="el-dropdown-link"><svg class="icon nav-bar-icon"><use xlink:href="#icon-wode"></use></svg></span>
+              <el-dropdown-menu slot="dropdown" v-if="userInfo.name">
+                <el-dropdown-item>个人中心</el-dropdown-item>
+                <el-dropdown-item>我的收藏</el-dropdown-item>
+                <el-dropdown-item>我的影评</el-dropdown-item>
+                <el-dropdown-item divided>修改个人信息</el-dropdown-item>
+                <el-dropdown-item>设置</el-dropdown-item>
+                <el-dropdown-item divided  @click.native.prevent="loginOut">退出</el-dropdown-item>
+              </el-dropdown-menu>
+              <el-dropdown-menu slot="dropdown" v-else>
+                <el-dropdown-item @click.native.prevent="toLogin">登录</el-dropdown-item>
+                <el-dropdown-item @click.native.prevent="toRegister">注册</el-dropdown-item>
+              </el-dropdown-menu>
           </el-dropdown>
         </li>
         <li><svg class="icon nav-bar-icon"><use xlink:href="#icon-unie62c"></use></svg></li>
       </ul>
       <!--导航菜单-->
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" >
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-submenu index="2">
+      <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" route="true">
+        <el-menu-item index="/">首页</el-menu-item>
+        <el-submenu index="1">
           <template slot="title">选电影</template>
-          <el-menu-item index="2-1">猜你喜欢</el-menu-item>
-          <el-menu-item index="2-2">热门推荐</el-menu-item>
-          <el-menu-item index="2-3">最近上映</el-menu-item>
+          <el-menu-item index="/recommend">猜你喜欢</el-menu-item>
+          <el-menu-item index="/hot-movie">热门推荐</el-menu-item>
+          <el-menu-item index="/recent">最近上映</el-menu-item>
         </el-submenu>
-        <el-menu-item index="3">排行榜</el-menu-item>
-        <el-menu-item index="4">分类</el-menu-item>
-        <el-menu-item index="5">影评</el-menu-item>
+        <el-menu-item index="/leader-board">排行榜</el-menu-item>
+        <el-menu-item index="/genres">分类</el-menu-item>
+        <el-menu-item index="/remark">影评</el-menu-item>
       </el-menu>
       <!--&lt;!&ndash;面包屑&ndash;&gt;-->
       <!--<el-breadcrumb separator="/" class="breadcrumb">-->
@@ -43,17 +45,39 @@
 </template>
 
 <script>
+import cookie from '../assets/js/cookie'
+import { mapGetters } from 'vuex'
 export default {
   name: 'header-nav',
   data () {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
     }
+  },
+  created () {
+  },
+  computed: {
+    ...mapGetters({
+      userInfo: 'userInfo'
+    })
   },
   mounted () {
   },
   methods: {
+    loginOut () {
+      cookie.delCookie('token')
+      cookie.delCookie('name')
+      // 重新触发sotre
+      this.$store.dispatch('setInfo')
+      // 跳转到登录页面
+      this.$router.push({'name': 'Login'})
+    },
+    toLogin () {
+      this.$router.push({'name': 'Login'})
+    },
+    toRegister () {
+      // TODO 注册功能
+      console.log('register')
+    }
   }
 }
 </script>

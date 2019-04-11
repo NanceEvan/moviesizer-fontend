@@ -9,11 +9,9 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
-    console.log('interceptors')
     if (store.state.userInfo.token) { // 判断是否存在token，如果存在的话，则每个http header都加上token
       config.headers.Authorization = `JWT ${store.state.userInfo.token}`
     }
-    console.log(config)
     return config
   },
   err => {
