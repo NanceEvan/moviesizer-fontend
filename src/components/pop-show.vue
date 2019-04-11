@@ -1,7 +1,8 @@
 <template>
-  <div id="pop-show">
+  <div id="pop-show" style="width: 1150px;">
     <h5>近期热点</h5>
-    <ul class="pop clearfix" id="pop-list">
+    <ul class="recent-hots clear" id="pop-list" style="width: 1150px;">
+      <li v-for="(item,index) in movies" v-bind:key="index" class="fl"><item-collapse :item="item"></item-collapse></li>
     </ul>
     <div class="button">
       <a href="javascript:void(0)" class="iconfont icon-left-circle pre mr10 disabled" id="pop-pre"></a>
@@ -11,19 +12,28 @@
 </template>
 
 <script>
+import itemCollapse from './item-collapse'
+import {times} from 'number-precision'
 export default {
-  name: 'pop-show'
+  name: 'pop-show',
+  components: {
+    itemCollapse
+  },
+  props: {
+    movies: {
+      type: Array
+    }
+  },
+  computed: {
+    getWidth () {
+      return times(2, 185)
+    }
+  }
 }
 </script>
 
 <style scoped>
-  div[class$="pro"]{
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
-    border-radius: 8px;
-  }
-  div[class$="pro"] > h5{
+  h5{
     height: 60px;
     font-size: 19px;
     line-height: 3em;
@@ -31,27 +41,12 @@ export default {
     color: rgb(102, 102, 102);
     border-bottom: 1px solid rgb(225, 225, 225);
   }
-  .pop{
-    position: relative;
-    right: 0;
-    /*right: 1220px;*/
-    width: 2440px;
+  #pop-show {
+    margin: 0 auto;
+    overflow: hidden;
   }
-  .pop-pro .button {
-    position: absolute;
-    right: 20px;
-    top: 18px;
-    font-size: 0;
-  }
-
-  .pop-pro .button .pre, .pop-pro .button .sub{
-    font-size: 25px;
-    color: rgb(124, 124, 124);
-  }
-  .pop-pro .button .disabled{
-    color: rgb(213, 213, 213);
-  }
-  .pop-pro .button .disabled:hover{
-    cursor: not-allowed;
+  #pop-list li{
+    margin-left: 55px;
+    margin-bottom: 10px;
   }
 </style>

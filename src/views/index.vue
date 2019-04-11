@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <carousel></carousel>
-    <pop-show></pop-show>
+    <pop-show :movies="hotMovies"></pop-show>
   </div>
 </template>
 

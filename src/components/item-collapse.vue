@@ -1,6 +1,17 @@
 <template>
-  <div class="item-box">
-    <div class="img_content">
+  <div class="item-box clear">
+    <div class="info fr">
+      <div class="info-wrap">
+        <h3 class="item-title">{{item.title}}</h3>
+        <span class="item-release_data">{{item.release_data}}</span>
+        <div class="outer-rating">
+          <el-progress :percentage="ratingPercent" :color="ratingColor"></el-progress>
+        </div>
+      </div>
+      <p class="overview">{{overview}}</p>
+      <div class="view-more">More Info</div>
+    </div>
+    <div class="img_content fl">
       <img :src="prefix+item.poster_path" v-if="item.poster_path">
       <div class="non-img" v-else></div>
       <div class="hover">
@@ -17,17 +28,6 @@
           </svg>
         </div>
       </div>
-    </div>
-    <div class="info">
-      <div class="info-wrap">
-        <h3 class="item-title">{{item.title}}</h3>
-        <span class="item-release_data">{{item.release_data}}</span>
-        <div class="outer-rating">
-          <el-progress :percentage="ratingPercent" :color="ratingColor"></el-progress>
-        </div>
-      </div>
-      <p class="overview">{{overview}}</p>
-      <div class="view-more">More Info</div>
     </div>
   </div>
 </template>
@@ -77,11 +77,12 @@ export default {
 
 <style scoped>
   .item-box {
-    /*width: 185px;*/
+    width: 483px;
     position: relative;
-    width: 400px;
+    /*width: 400px;*/
     height: 275px;
-    background-color: blue;
+    /*margin-left: 298px;*/
+    /*background-color: blue;*/
   }
   /*--start-- 左侧图片区域 --start--*/
   .img_content {
@@ -136,17 +137,15 @@ export default {
 
   /*--start-- 右侧详情 --start--*/
   .info {
-    display: none;
+    /*display: none;*/
     width: 298px;
     height: 278px;
-    position: absolute;
-    top: 0;
-    left: 185px;
     background-color: white;
     box-sizing: border-box;
     padding: 10px 16px 16px 16px;
     border: 1px solid #e3e3e3;
     overflow: hidden;
+    /*z-index: 99;*/
   }
   .item-title {
     width: 100%;
