@@ -48,12 +48,10 @@ export default {
   data () {
     return {
       activeIndex: '1',
-      activeIndex2: '1',
-
+      activeIndex2: '1'
     }
   },
   mounted () {
-    this.restaurants = this.loadAll()
   },
   methods: {
   }
@@ -65,7 +63,7 @@ export default {
     height: 50px;
     position: fixed;
     top: 0px;
-    z-index: 9999;
+    z-index: 9999
   }
   .top-nav-info {
     position: absolute;

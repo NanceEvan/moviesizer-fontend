@@ -6,6 +6,12 @@ const Mock = require('mockjs') // 获取mock对象
 const postBanners = req => {
   return require('./mocker/banners')
 }
+// 热搜
+const postHotSearch = req => {
+  return require('./mocker/hot-search')
+}
 
 // 获取banners
 Mock.mock(`/banners/`, 'get', postBanners)
+// 获取热搜词
+Mock.mock('/hot-search/', 'get', postHotSearch)
