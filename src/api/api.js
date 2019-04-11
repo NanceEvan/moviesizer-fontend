@@ -19,3 +19,9 @@ export const getHotMovies = params => {
   let url = `${host}/hot-movies/`
   return axios.get(url)
 }
+
+// 登录
+export const login = params => {
+  let url = `${host}/login/`
+  return axios.post(url, params)
+}

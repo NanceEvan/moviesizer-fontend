@@ -15,9 +15,16 @@ const postHotMovie = req => {
   return require('./mocker/hot-movies')
 }
 
+// 登录
+const login = req => {
+  return require('./mocker/login')
+}
+
 // 获取banners
 Mock.mock(`/banners/`, 'get', postBanners)
 // 获取热搜词
 Mock.mock('/hot-search/', 'get', postHotSearch)
 // 获取近期热门
 Mock.mock('/hot-movies/', 'get', postHotMovie)
+// 登录
+Mock.mock('/login/', 'post', login)
